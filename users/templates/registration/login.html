@@ -1,0 +1,17 @@
+{% extends 'about/base.html' %}
+{% block header %}
+    <h1>Log in to your account</h1>
+{% endblock header %}
+{% block body %}
+    {% if form.errors %}
+        <span class="user-login-error">
+            Your username and password did not match. Please try again.
+        </span>
+    {% endif %}
+    <form method="post" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Log in</button>
+        <input type="hidden" name="next" value="{% url 'about:index' %}">
+    </form>
+{% endblock body %}
