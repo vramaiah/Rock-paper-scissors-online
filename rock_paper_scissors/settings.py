@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # My apps
     'stats',
     'game',
+    'about',
 
     # Default django apps
     'django.contrib.admin',
