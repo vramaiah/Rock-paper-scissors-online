@@ -4,9 +4,11 @@
 {% endblock header %}
 {% block body %}
     {% if form.errors %}
-        <span class="user-login-error">
+        <p>
+            <span class="user-login-error">
             Your username and password did not match. Please try again.
-        </span>
+            </span>
+        </p>
     {% endif %}
     <form method="post" action="{% url 'users:login' %}">
         {% csrf_token %}

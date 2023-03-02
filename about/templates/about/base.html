@@ -14,8 +14,17 @@
     </head>
     <body>
         <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+            <p class="outdated-browser">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <div>
+            <a href="{% url 'about:index' %}">RPC Arena</a> 
+            {% if user.is_authenticated %}
+                Hello, {{user.username}}!
+            {% else %}
+                <a href="{% url 'users:register' %}">Register</a> 
+                <a href="{% url 'users:login' %}">Log in</a>
+            {% endif %}
+        <div>
         <main>
             <div>
                 {% block header%}{% endblock header%}
