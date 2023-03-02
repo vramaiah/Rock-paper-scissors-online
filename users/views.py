@@ -19,7 +19,7 @@ def register(request):
             profile.save()
             # Log in user and redirect to home page
             login(request, new_user)
-            return redirect('about:index')
+            return redirect('game:lobby')
     # Display a blank/invalid form
     context = {'form' : form}
     return render(request, 'registration/register.html', context)
