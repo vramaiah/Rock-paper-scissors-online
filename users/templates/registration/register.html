@@ -1,0 +1,12 @@
+{% extends 'about/base.html' %}
+{% block header %}
+    <h1>Register your account</h1>
+{% endblock header %}
+{% block body %}
+    <form method="post" action="{% url 'users:register' %}">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button name="submit">Register</button>
+        <input type="hidden" name="next" value="{% url 'about:index' %}"/>
+    </form>
+{% endblock body %}
