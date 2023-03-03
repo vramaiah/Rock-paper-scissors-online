@@ -17,11 +17,12 @@
             <p class="outdated-browser">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div>
-            <a href="{% url 'about:index' %}">RPC Arena</a> 
             {% if user.is_authenticated %}
+                <a href="{% url 'game:lobby' %}">RPC Arena</a> 
                 Hello, {{user.username}}!
                 <a href="{% url 'users:logout' %}">Log out</a> 
             {% else %}
+                <a href="{% url 'about:index' %}">RPC Arena</a> 
                 <a href="{% url 'users:register' %}">Register</a> 
                 <a href="{% url 'users:login' %}">Log in</a>
             {% endif %}
